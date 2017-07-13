@@ -1,0 +1,9 @@
+alias rails='bundle exec rails'
+alias rake='bundle exec rake'
+alias profile='bundle exec stackprof tmp/stackprof_dumps/*.dump'
+alias rm='rm -i'
+export PATH='~/docker/bin/docker':$PATH
+export EDITOR=nano
+
+[ "$PG_CONTAINER_NAME" ] && alias pg_container='docker exec -u postgres -it $PG_CONTAINER_NAME'
+[ -s ~/.rvm/scripts/rvm ] && . ~/.rvm/scripts/rvm

@@ -23,3 +23,5 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+staging:
+  url: postgresql://postgres:123456@127.0.0.1:5432/rails51_with_yarn_staging
