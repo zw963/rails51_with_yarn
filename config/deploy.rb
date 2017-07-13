@@ -1,7 +1,7 @@
 set :application, 'rails51_with_yarn'
 # 本地 git 示例: ssh://git@example.com:30000/~/me/my_repo.git
 # svn 示例: svn://myhost/myrepo/#{fetch(:branch)}
-set :repo_url, ''
+set :repo_url, 'git@github.com:zw963/rails51_with_yarn'
 set :rails_env, -> { fetch(:stage) }
 set :rvm_ruby_version, "ruby-2.3.4@#{fetch(:application)}"
 set :keep_releases, 5
