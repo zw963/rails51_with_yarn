@@ -1,0 +1,53 @@
+#!/bin/bash
+
+############### 在本文件中用到的环境变量, 经常需要改动. #############3
+pg_container=xxxpay.pg.5432
+redis_cache_container=xxxpay.cache.6379
+redis_queue_container=xxxpay.queue.6380
+
+# 这个在设定 config.cache_store 的时候才会用到.
+# 例如:  export CACHE_STORE_REDIS_URL='redis://127.0.0.1:6379/0/cache'
+# config.cache_store = :redis_store, ENV.fetch('CACHE_STORE_REDIS_URL')
+# export CACHE_STORE_REDIS_URL=redis://ershou-web.redis-cache-server.6379/0
+
+# 下面的几个变量暂时还未用到.
+# export SIDEKIQ_REDIS_URL=redis://ershou-web.redis-queue-server.6380/0
+# export ACTION_CABLE_REDIS_URL=redis://ershou-web.redis-cache-server.6379/1
+
+# export DEFAULT_PORT=8631
+
+###################################################
+
+export dockerfile=app/app.dockerfile
+export dockerconfigdir=app/config:/config
+# container_named_as_numeric =true
+# dockerized_app_build_new_secret=true
+
+# 部署时如果需要调试, 开启这个.
+# dockerized_app_debug_mode =true
+
+# 真实要连接到的 pg 数据库, override 了 Dockerfile 中的默认值.
+export DATABASE_URL=postgresql://postgres:123456@${pg_container}/xxxpay_${RAILS_ENV}
+#
+export APP_ROUTE_FILE='config/routes/api.rb'
+
+# 下面的变量在什么场景下用, 怎么用, 还没有想清楚.
+# export HTTP_HOST=api.pay.mymart.com
+
+export shared_volumes='
+public/assets
+tmp/cache
+'
+
+export depend_on_services="
+$pg_container
+$redis_cache_container
+$redis_queue_container
+"
+
+# 这部分功能目前暂时没用到.
+# mount_app_directory_when_development=true
+
+# \wget -q --no-cache https://raw.githubusercontent.com/zw963/docker_on_rails/v0.0.1/lib/docker_on_rails.sh -O - |bash -s $0 "$@"
+
+cat ~/Project/docker_on_rails/lib/docker_on_rails.sh |bash -s $0 "$@"

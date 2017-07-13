@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -x
+export auto_restart=true
+export dockerconfigdir=pg/config:/config
+export data_volume=/var/lib/postgresql/data
+
+if [ "$RAILS_ENV" == 'production' ] || [ "$RAILS_ENV" == 'staging' ]; then
+    export dockerfile=pg/pg_with_pgbouncer.dockerfile
+else
+    export dockerfile=pg/pg.dockerfile
+fi
+
+# \wget -q --no-cache https://raw.githubusercontent.com/zw963/docker_on_rails/v0.0.1/lib/docker_on_rails.sh -O - |bash -s "$@"
+cat /home/zw963/Project/docker_on_rails/lib/docker_on_rails.sh |bash -s $0 "$@"

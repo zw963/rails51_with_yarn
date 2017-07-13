@@ -1,0 +1,16 @@
+#!/bin/bash
+
+export dockerfile=redis/redis.dockerfile
+export auto_restart=true
+
+if [ "$1" == "queue" ]; then
+    export dockerconfig=redis/queue_server.conf:/usr/local/etc/redis.conf
+    export data_volume=/data
+elif [ "$1" == "cache" ]; then
+    export dockerconfig=redis/cache_server.conf:/usr/local/etc/redis.conf
+else
+    echo "Run with \`bin/build_redis cache' or \`bin/build_redis queue' individually."
+    exit
+fi
+
+\wget -q --no-cache https://raw.githubusercontent.com/zw963/docker_on_rails/v0.0.1/lib/docker_on_rails.sh -O - |bash -s $0 "$@"
