@@ -65,5 +65,5 @@ namespace :sidekiq do
   end
 end
 
-before 'deploy:started', 'sidekiq:quiet'
-after 'deploy:published', 'sidekiq:restart'
+# before 'deploy:started', 'sidekiq:quiet'
+# after 'deploy:published', 'sidekiq:restart'
