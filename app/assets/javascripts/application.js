@@ -12,7 +12,7 @@
 //
 
 //= require jquery
-//= require jquery_ujs
 //= require google/gmaps
+//= require rails-ujs
 //= require turbolinks
 //= require_tree .
