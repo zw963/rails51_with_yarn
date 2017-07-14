@@ -1,0 +1,13 @@
+<% lat = '1.345565' %>
+<% lng = '103.685504' %>
+<% zoom = '12' %>
+
+<div class="js-google-map-container"
+     data-google-map-id="google-map"
+     data-google-map-zoom="<%= zoom %>"
+     data-google-map-geocode-to-address-url=''
+     data-title-text="请移动我选择你的地址">
+  <input class="js-address" type="text" name="address">
+  <input class="js-lat" type="hidden" name="lat" value="<%= lat %>">
+  <input class="js-lng" type="hidden" name="lng" value="<%= lng %>">
+</div>

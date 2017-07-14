@@ -10,5 +10,12 @@
 
   <body>
     <%= yield %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWP3zdmZ1lraIuEI9QH31kZbXVLm99MLA"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+      $(function() {
+        page__shared__google_map_for_publish.init();
+      });
+    </script>
   </body>
 </html>
