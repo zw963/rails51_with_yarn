@@ -18,7 +18,6 @@ set :cable_config, -> { "#{fetch(:config_dir)}/cable.rb" }
 set :sidekiq_pid, -> { "#{fetch(:pid_dir)}/sidekiq.pid" }
 
 set :linked_files, %w{
-  config/bashrc
 }
 set :linked_dirs, %w{
   log
