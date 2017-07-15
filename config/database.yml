@@ -33,7 +33,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: postgres
+  #username: rails51_with_yarn
 
   # The password associated with the postgres role (username).
   #password:
@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: rails51_with_yarn_production
-  username: postgres
-  password: <%= ENV['PG_EXAMPLE_DATABASE_PASSWORD'] %>
+  username: rails51_with_yarn
+  password: <%= ENV['RAILS51_WITH_YARN_DATABASE_PASSWORD'] %>

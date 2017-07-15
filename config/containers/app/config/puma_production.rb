@@ -13,7 +13,9 @@ unless ENV['RAILS_LOG_TO_STDOUT'] == 'true'
   stdout_redirect "log/#{file}.access.log", "log/#{file}.err.log"
   daemonize
 end
-# bind "tcp://0.0.0.0:#{port}"
+
+port = ENV['DEFAULT_PORT']
+bind "tcp://0.0.0.0:#{port}" unless port.nil?
 
 # socket 文件放到 tmp 目录下, 避免 socket 在系统 /tmp 目录下某些 linux 系统下可能存在的问题.
 dir = File.realpath(File.expand_path('../../../../../tmp', __FILE__))
