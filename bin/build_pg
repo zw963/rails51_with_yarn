@@ -10,5 +10,5 @@ else
     export dockerfile=pg/pg.dockerfile
 fi
 
-\wget -q --no-cache https://raw.githubusercontent.com/zw963/docker_on_rails/v0.0.2/lib/docker_on_rails.sh -O - |bash -s $0 "$@"
+\wget -q --no-cache https://raw.githubusercontent.com/zw963/docker_on_rails/feature/pwd_use_symlick/lib/docker_on_rails.sh -O - |bash -s $0 "$@"
 # cat /home/zw963/Project/docker_on_rails/lib/docker_on_rails.sh |bash -s $0 "$@"
