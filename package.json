@@ -1,5 +1,7 @@
 {
   "name": "rails51_with_yarn",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "gmaps": "^0.4.24"
+  }
 }
