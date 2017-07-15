@@ -15,5 +15,5 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
-//= require google/gmaps
+//= require gmaps/gmaps.min
 //= require_tree .
